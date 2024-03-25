@@ -45,7 +45,26 @@ if ($conn->connect_error) {
 
     <script src="kfz-JS.js"></script>
 
+    <style>
+        iframe {
+            width: 100%;
+            height: 800px;
+        }
 
+        #divContent1,
+        #divContent2,
+        #divContent3,
+        #divContent4 {
+            flex: 4;
+        }
+
+        #divContent1,
+        #divContent2,
+        #divContent3,
+        #divContent4 {
+            display: none;
+        }
+    </style>
 
 </head>
 
@@ -85,10 +104,11 @@ if ($conn->connect_error) {
                         <a class="nav-link" href="#" onclick="foo3()">Neuer Kunde</a>
                     </li>
 
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="foo4()"></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="foo4()">Tabellen</a>
                     </li>
 
+                    <!-- 
                     <li class="nav-item" style="display: none">
                         <a class="nav-link" href="#" onclick="foo5()"></a>
                     </li>
@@ -108,21 +128,22 @@ if ($conn->connect_error) {
 
 
         <div id="divContent1">
-            <iframe src="kfz-table.php" frameborder="0" style="width: 100%; height: 380px;"></iframe>
+            <iframe src="kfz-config.php" frameborder="0" style="height: 200px"></iframe>
         </div>
 
         <div id="divContent2">
-            <iframe src="kfz-newEntryKFZ.php" frameborder="0" style="width: 100%; height: 380px;"></iframe>
+            <iframe src="kfz-newEntryKFZ.php" frameborder="0"></iframe>
         </div>
 
         <div id="divContent3">
-            <iframe src="kfz-newEntryKunde.php" frameborder="0" style="width: 100%; height: 380px;"></iframe>
+            <iframe src="kfz-newEntryKunde.php" frameborder="0"></iframe>
         </div>
 
-        <!-- <div id="divContent4">
-            <iframe src="kfz-.php" frameborder="0"></iframe>
+        <div id="divContent4">
+            <iframe src="kfz-table.php" frameborder="0"></iframe>
         </div>
 
+        <!-- 
         <div id="divContent5">
             <iframe src="kfz-.php" frameborder="0"></iframe>
         </div>

@@ -15,6 +15,7 @@
 </script>
 
 <body>
+    <h2>Alle Kunden</h2>
 
 
 <?php
@@ -37,12 +38,29 @@ if ($result->num_rows > 0) {
     echo "<table border='1' id='kfz_werkstatt-Kunden' class='display table table-striped table-light' style='width:100%'>";
     echo "<thead>
 
-    <tr style='display: none;'> <th>ID</th> </tr>
+    <tr>
+        <th>ID</th>
+        <th>Anrede</th>
+        <th>TITEL</th>
+        <th>ZUNAME</th>
+        <th>VORNAME</th>
+        <th>Firma</th>
+        <th>STRASSE</th>
+        <th>PLZ</th>
+        <th>ORT</th>
+        <th>Telefon</th>
+        <th>Telefon2</th>
+        <th>mail</th>
+        <th>Kundeseit</th>
+        <th>Fax</th>
+        <th>Kommentar</th>
+    </tr>
 
     </thead>";
 
     while($row = $result->fetch_assoc()) {
         echo "<tr>"
+        ."<td>".$row["NUMMER"]."</td>"
         ."<td>".$row["Anrede"]."</td>"
         ."<td>".$row["TITEL"]."</td>"
         ."<td>".$row["ZUNAME"]."</td>"
@@ -66,6 +84,9 @@ if ($result->num_rows > 0) {
     echo "Keine Datensätze gefunden";
 }
 
+?>
+<h2>Alle Fahrzeuge</h2>
+<?php
 
 $sql = "SELECT * FROM tbl_kfz_kfz";
 $result = $conn->query($sql);
@@ -74,7 +95,24 @@ if ($result->num_rows > 0) {
     echo "<table border='1' id='kfz_werkstatt-Kfz' class='display table table-striped table-light' style='width:100%'>";
     echo "<thead>
 
-    <tr style='display: none;'> <th>ID</th> </tr>
+    <tr>
+        <th>KundenNr</th>
+        <th>Kennzeichen</th>
+        <th>Marke</th>
+        <th>Typ</th>
+        <th>Baujahr</th>
+        <th>kmStand</th>
+        <th>kw</th>
+        <th>treibstoff</th>
+        <th>Tueren</th>
+        <th>karosserie</th>
+        <th>Zulassung</th>
+        <th>Erstzulassung</th>
+        <th>Fahrgestellnummer</th>
+        <th>Motornummer</th>
+        <th>Hubraum</th>
+        <th>FIN</th>
+    </tr>
 
     </thead>";
 
@@ -87,7 +125,7 @@ if ($result->num_rows > 0) {
         ."<td>".$row["Baujahr"]."</td>"
         ."<td>".$row["kmStand"]."</td>"
         ."<td>".$row["kw"]."</td>"
-        ."<td>".$row["BenzinDiesel"]."</td>"
+        ."<td>".$row["treibstoff"]."</td>"
         ."<td>".$row["Tueren"]."</td>"
         ."<td>".$row["karosieform"]."</td>"
         ."<td>".$row["Zulassung"]."</td>"
