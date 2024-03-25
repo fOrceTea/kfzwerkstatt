@@ -11,7 +11,7 @@ $dbname = "kfz_werkstatt";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    die ("Verbindung fehlgeschlagen: " . $conn->connect_error);
 }
 
 ?>
@@ -85,7 +85,7 @@ if ($conn->connect_error) {
                         <a class="nav-link" href="#" onclick="foo3()">Neuer Kunde</a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#" onclick="foo4()"></a>
                     </li>
 
@@ -95,7 +95,7 @@ if ($conn->connect_error) {
 
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="foo6()"></a>
-                    </li>
+                    </li> -->
 
                 </ul>
 
@@ -104,32 +104,32 @@ if ($conn->connect_error) {
     </nav>
 
 
-    <main class="mh-100" style="width: 100%; height: 100%px;">
+    <main>
 
 
         <div id="divContent1">
-            <iframe src="kfz-table.php" frameborder="0" class="mh-100" style="width: 100%; height: 1250px;"></iframe>
+            <iframe src="kfz-table.php" frameborder="0" style="width: 100%; height: 380px;"></iframe>
         </div>
 
         <div id="divContent2">
-            <iframe src="kfz-newEntryKFZ.php" frameborder="0" style="width: 100%; height: 1250px;"></iframe>
+            <iframe src="kfz-newEntryKFZ.php" frameborder="0" style="width: 100%; height: 380px;"></iframe>
         </div>
 
         <div id="divContent3">
-            <iframe src="kfz-newEntryKunde.php" frameborder="0" style="width: 100%; height: 1250px;"></iframe>
+            <iframe src="kfz-newEntryKunde.php" frameborder="0" style="width: 100%; height: 380px;"></iframe>
         </div>
 
-        <div id="divContent4">
-            <iframe src="kfz-.php" frameborder="0" style="width: 100%; height: 600px;"></iframe>
+        <!-- <div id="divContent4">
+            <iframe src="kfz-.php" frameborder="0"></iframe>
         </div>
 
         <div id="divContent5">
-            <iframe src="kfz-.php" frameborder="0" style="width: 100%; height: 600px;"></iframe>
+            <iframe src="kfz-.php" frameborder="0"></iframe>
         </div>
 
         <div id="divContent6">
-            <iframe src="kfz-.php" frameborder="0" style="width: 100%; height: 600px;"></iframe>
-        </div>
+            <iframe src="kfz-.php" frameborder="0"></iframe>
+        </div> -->
 
 
 

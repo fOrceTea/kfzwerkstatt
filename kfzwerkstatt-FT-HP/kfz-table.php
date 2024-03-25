@@ -45,7 +45,7 @@ if ($result->num_rows > 0) {
         echo "<tr>"
         ."<td>".$row["Anrede"]."</td>"
         ."<td>".$row["TITEL"]."</td>"
-        ."<td>".$row["NAME"]."</td>"
+        ."<td>".$row["ZUNAME"]."</td>"
         ."<td>".$row["VORNAME"]."</td>"
         ."<td>".$row["Firma"]."</td>"
         ."<td>".$row["STRASSE"]."</td>"
