@@ -43,68 +43,15 @@ CREATE TABLE IF NOT EXISTS tbl_kfz_kfz (
     FOREIGN KEY (KundenNr) REFERENCES tbl_kfz_kunden(NUMMER)
 );
 
-DROP TABLE IF EXISTS tbl_rechnungen;
-CREATE TABLE IF NOT EXISTS tbl_rechnungen (
-    RechnungsNr INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    KundenNr INT(11),
-    Datum DATE,
-    Rechnungsbetrag DECIMAL(10, 2),
-    Bezahlt BOOLEAN DEFAULT FALSE,
-    Zahlungsdatum DATE,
-    Kommentar VARCHAR(255),
-    FOREIGN KEY (KundenNr) REFERENCES tbl_kfz_kunden(NUMMER)
-);
 
-DROP TABLE IF EXISTS tbl_konten;
-CREATE TABLE IF NOT EXISTS tbl_konten (
-    ID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Kontenbezeichnung VARCHAR(255)
-);
 
-DROP TABLE IF EXISTS tbl_leistungen;
-CREATE TABLE IF NOT EXISTS tbl_leistungen (
-    LeistungsNr INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Bezeichnung VARCHAR(255),
-    Preis DECIMAL(10, 2),
-    KontenNr INT(11),
-    Steuersatz DECIMAL(5, 2) DEFAULT 20.00,
-    FOREIGN KEY (KontenNr) REFERENCES tbl_konten(ID) 
-);
 
-DROP TABLE IF EXISTS tbl_rechnungsdetails;
-CREATE TABLE IF NOT EXISTS tbl_rechnungsdetails (
-    DetailNr INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    RechnungsNr INT(11),
-    LeistungsNr INT(11),
-    Menge INT(11),
-    Einzelpreis DECIMAL(10, 2),
-    Gesamtpreis DECIMAL(10, 2),
-    Steuersatz DECIMAL(5, 2),
-    FOREIGN KEY (RechnungsNr) REFERENCES tbl_rechnungen(RechnungsNr),
-    FOREIGN KEY (LeistungsNr) REFERENCES tbl_leistungen(LeistungsNr)
-);
 
-DROP TABLE IF EXISTS tbl_lieferanten;
-CREATE TABLE IF NOT EXISTS tbl_lieferanten (
-    LieferantenNr INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(255),
-    STRASSE VARCHAR(255),
-    PLZ INT(11),
-    ORT VARCHAR(255),
-    Telefon VARCHAR(50),
-    mail VARCHAR(50),
-    Ansprechpartner VARCHAR(255)
-);
 
-DROP TABLE IF EXISTS tbl_steuersaetze;
-CREATE TABLE IF NOT EXISTS tbl_steuersaetze (
-    SteuersatzNr INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Beschreibung VARCHAR(255),
-    Steuersatz DECIMAL(5, 2));
-    
-INSERT INTO tbl_kfz_kunden (Anrede, TITEL, ZUNAME, VORNAME, Firma, STRASSE, PLZ, ORT, Telefon, Telefon2, mail, Kundeseit, Fax, Kommentar) VALUES 
-('Herr', 'Dr.', 'Müller', 'Max', 'Müller GmbH', 'Hauptstraße 1', 12345, 'Musterstadt', '01234/56789', '09876/54321', 'max.mueller@example.com', '2023-01-01', '01234/56788', 'Stammkunde'),
-('Frau', 'Prof.', 'Schmidt', 'Julia', 'Schmidt AG', 'Bahnhofstraße 2', 23456, 'Beispielstadt', '02345/67890', '', 'julia.schmidt@example.com', '2023-02-02', '', 'Neukunde');
+INSERT INTO tbl_kfz_kunden (Anrede, TITEL, NAME, VORNAME, Firma, STRASSE, PLZ, ORT, Telefon, Telefon2, mail, Kundeseit, Fax, Kommentar) VALUES
+('Herr', 'Dr.', 'Müller', 'Max', 'Müller GmbH', 'Musterstraße 1', 12345, 'Musterstadt', '0123 456789', '0987 654321', 'max.mueller@example.com', '01.01.2020', '0123 456788', 'Sehr zuverlässig'),
+('Frau', 'Prof.', 'Schmidt', 'Eva', 'Schmidt AG', 'Beispielweg 2', 23456, 'Beispielstadt', '0234 567890', '0876 543210', 'eva.schmidt@example.com', '15.03.2018', '0234 567889', 'Stammkunde'),
+('Herr', '', 'Fischer', 'Tom', 'Fischer und Söhne', 'Hauptstraße 3', 34567, 'Hauptstadt', '0345 678901', '0765 432109', 'tom.fischer@example.com', '20.07.2019', '0345 678902', 'Empfohlen durch Freund');
 
 INSERT INTO tbl_kfz_kfz (KundenNr, Kennzeichen, Marke, Typ, Baujahr, kmStand, kw, treibstoff, Tueren, karosieform, Zulassung, Erstzulassung, Fahrgestellnummer, Motornummer, Hubraum, FIN) VALUES 
 (1, 'M-XY 1234', 'Volkswagen', 'Golf', '2018', 50000, 110, 'Diesel', '5', 'Limousine', '2023-04-01', '2018-05-01', 'WVWZZZ1JZ3W386752', 'AB123456789', 1968, 'WVWZZZAUZEW123456'),
