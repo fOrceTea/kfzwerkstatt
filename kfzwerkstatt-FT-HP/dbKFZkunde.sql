@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS tbl_kfz_kunden (
     NUMMER INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Anrede VARCHAR(20),
     TITEL VARCHAR(20),
-    NAME VARCHAR(50),
+    ZUNAME VARCHAR(50),
     VORNAME VARCHAR(40),
     Firma VARCHAR(50),
     STRASSE VARCHAR(50),
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS tbl_kfz_kfz (
 
 
 
-INSERT INTO tbl_kfz_kunden (Anrede, TITEL, NAME, VORNAME, Firma, STRASSE, PLZ, ORT, Telefon, Telefon2, mail, Kundeseit, Fax, Kommentar) VALUES
+INSERT INTO tbl_kfz_kunden (Anrede, TITEL, ZUNAME, VORNAME, Firma, STRASSE, PLZ, ORT, Telefon, Telefon2, mail, Kundeseit, Fax, Kommentar) VALUES
 ('Herr', 'Dr.', 'Müller', 'Max', 'Müller GmbH', 'Musterstraße 1', 12345, 'Musterstadt', '0123 456789', '0987 654321', 'max.mueller@example.com', '01.01.2020', '0123 456788', 'Sehr zuverlässig'),
 ('Frau', 'Prof.', 'Schmidt', 'Eva', 'Schmidt AG', 'Beispielweg 2', 23456, 'Beispielstadt', '0234 567890', '0876 543210', 'eva.schmidt@example.com', '15.03.2018', '0234 567889', 'Stammkunde'),
 ('Herr', '', 'Fischer', 'Tom', 'Fischer und Söhne', 'Hauptstraße 3', 34567, 'Hauptstadt', '0345 678901', '0765 432109', 'tom.fischer@example.com', '20.07.2019', '0345 678902', 'Empfohlen durch Freund');
