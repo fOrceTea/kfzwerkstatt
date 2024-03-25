@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     (Anrede, TITEL, ZUNAME, VORNAME, Firma, STRASSE, PLZ, ORT, Telefon, Telefon2, mail, Kundeseit, Fax, Kommentar)
     VALUES ('$Anrede', '$TITEL', '$ZUNAME', '$VORNAME', '$Firma', '$STRASSE', '$PLZ', '$ORT', '$Telefon', '$Telefon2', '$mail', '$Kundeseit', '$Fax', '$Kommentar')";
     if ($conn->query($sql) === TRUE) {
-        echo "Projekt erfolgreich hinzugefügt.";
+        echo "Kunde erfolgreich hinzugefügt.";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

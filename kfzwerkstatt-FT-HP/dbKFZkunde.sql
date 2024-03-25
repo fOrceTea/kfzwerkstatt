@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS tbl_rechnungsdetails (
     Menge INT(11),
     Einzelpreis DECIMAL(10, 2),
     Gesamtpreis DECIMAL(10, 2),
-    Steuersatz DECIMAL(5, 2),
+    Steuersatz DECIMAL(5, 2) DEFAULT 20.00,
     FOREIGN KEY (RechnungsNr) REFERENCES tbl_rechnungen(RechnungsNr),
     FOREIGN KEY (LeistungsNr) REFERENCES tbl_leistungen(LeistungsNr)
 );
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS tbl_rechnungsdetails (
 DROP TABLE IF EXISTS tbl_lieferanten;
 CREATE TABLE IF NOT EXISTS tbl_lieferanten (
     LieferantenNr INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(255),
+    LieferantName VARCHAR(255),
     STRASSE VARCHAR(255),
     PLZ INT(11),
     ORT VARCHAR(255),
@@ -95,12 +95,6 @@ CREATE TABLE IF NOT EXISTS tbl_lieferanten (
     mail VARCHAR(50),
     Ansprechpartner VARCHAR(255)
 );
-
-DROP TABLE IF EXISTS tbl_steuersaetze;
-CREATE TABLE IF NOT EXISTS tbl_steuersaetze (
-    SteuersatzNr INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Beschreibung VARCHAR(255),
-    Steuersatz DECIMAL(5, 2));
     
 INSERT INTO tbl_kfz_kunden (Anrede, TITEL, ZUNAME, VORNAME, Firma, STRASSE, PLZ, ORT, Telefon, Telefon2, mail, Kundeseit, Fax, Kommentar) VALUES 
 ('Herr', 'Dr.', 'Müller', 'Max', 'Müller GmbH', 'Hauptstraße 1', 12345, 'Musterstadt', '01234/56789', '09876/54321', 'max.mueller@example.com', '2023-01-01', '01234/56788', 'Stammkunde'),
@@ -118,20 +112,15 @@ INSERT INTO tbl_konten (ID, Kontenbezeichnung) VALUES
 (1, 'Betriebskosten'),
 (2, 'Ersatzteile');
 
-INSERT INTO tbl_leistungen (LeistungsNr, Bezeichnung, Preis, KontenNr, Steuersatz) VALUES
-(1, 'Inspektion', 200.00, 1, 20.00),
-(2, 'Reifenwechsel', 50.00, 2, 20.00);
+INSERT INTO tbl_leistungen (LeistungsNr, Bezeichnung, Preis, KontenNr) VALUES
+(1, 'Inspektion', 200.00, 1),
+(2, 'Reifenwechsel', 50.00, 2);
 
-INSERT INTO tbl_rechnungsdetails (RechnungsNr, LeistungsNr, Menge, Einzelpreis, Gesamtpreis, Steuersatz) VALUES 
-(1, 1, 1, 800.00, 800.00, 20.00),
-(1, 2, 4, 100.00, 400.00, 20.00);
+INSERT INTO tbl_rechnungsdetails (RechnungsNr, LeistungsNr, Menge, Einzelpreis, Gesamtpreis) VALUES 
+(1, 1, 1, 800.00, 800.00),
+(1, 2, 4, 100.00, 400.00);
 
-INSERT INTO tbl_lieferanten (Name, STRASSE, PLZ, ORT, Telefon, mail, Ansprechpartner) VALUES
+INSERT INTO tbl_lieferanten (LieferantName, STRASSE, PLZ, ORT, Telefon, mail, Ansprechpartner) VALUES
 ('AutoTeile Meister', 'Gewerbestraße 5', 12345, 'Industriestadt', '01234 56789', 'kontakt@autoteilemeister.de', 'Herr Schmidt'),
 ('ReifenRundum', 'Reifenweg 2', 23456, 'Reifenstadt', '02345 67890', 'service@reifenrundum.de', 'Frau Müller'),
 ('LackProfi', 'Lackierallee 8', 34567, 'Farbenstadt', '03456 78901', 'info@lackprofi.de', 'Herr Braun');
-
-INSERT INTO tbl_steuersaetze (Beschreibung, Steuersatz) VALUES
-('Standard MwSt.', 20.00),
-('Ermäßigter Satz', 7.00),
-('Dienstleistungen', 20.00);

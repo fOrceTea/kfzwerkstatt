@@ -12,6 +12,7 @@
 <script>
     new DataTable('#kfz_werkstatt-Kunden');
     new DataTable('#kfz_werkstatt-Kfz');
+    new DataTable('#kfz_werkstatt-rechnung');
 </script>
 
 <body>
@@ -134,6 +135,46 @@ if ($result->num_rows > 0) {
         ."<td>".$row["Motornummer"]."</td>"
         ."<td>".$row["Hubraum"]."</td>"
         ."<td>".$row["FIN"]."</td>"
+        ;
+
+    }
+    echo "</table>";
+
+} else {
+    echo "Keine Datensätze gefunden";
+}
+?>
+<h2>Alle Rechnungen</h2>
+<?php
+
+$sql = "SELECT * FROM tbl_rechnungen";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table border='1' id='kfz_werkstatt-rechnung' class='display table table-striped table-light' style='width:100%'>";
+    echo "<thead>
+
+    <tr>
+        <th>RechnungsNr</th>
+        <th>KundenNr</th>
+        <th>Datum</th>
+        <th>Rechnungsbetrag</th>
+        <th>Bezahlt</th>
+        <th>Zahlungsdatum</th>
+        <th>Kommentar</th>
+    </tr>
+
+    </thead>";
+
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>"
+        ."<td>".$row["RechnungsNr"]."</td>"
+        ."<td>".$row["KundenNr"]."</td>"
+        ."<td>".$row["Datum"]."</td>"
+        ."<td>".$row["Rechnungsbetrag"]."</td>"
+        ."<td>".$row["Bezahlt"]."</td>"
+        ."<td>".$row["Zahlungsdatum"]."</td>"
+        ."<td>".$row["Kommentar"]."</td>"
         ;
 
     }
