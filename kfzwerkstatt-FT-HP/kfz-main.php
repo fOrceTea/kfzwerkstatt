@@ -151,7 +151,8 @@ if ($conn->connect_error) {
         </div>
 
         <div id="divContent6">
-            <iframe src="kfz-newEntryRechnungsdetails.php" frameborder="0"></iframe>
+            <iframe src="kfz-newEntryRechnung.php" frameborder="0" style="height: 400px"></iframe>
+            <iframe src="kfz-newEntryRechnungsdetails.php" frameborder="0" style="height: 400px"></iframe>
         </div>
 
     </main>

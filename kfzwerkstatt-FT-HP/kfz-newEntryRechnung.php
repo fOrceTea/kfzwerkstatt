@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="col">
                             <label for="bezahlt">Bezahlt:</label>
-                            <input type="checkbox" class="form-check-input" id="bezahlt" name="bezahlt">
+                            <input type="checkbox" class="form-check" id="bezahlt" name="bezahlt">
                         </div>
                     </div>
                     <div class="row">
