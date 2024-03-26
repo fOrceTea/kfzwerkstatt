@@ -13,6 +13,10 @@
     new DataTable('#kfz_werkstatt-Kunden');
     new DataTable('#kfz_werkstatt-Kfz');
     new DataTable('#kfz_werkstatt-rechnung');
+    new DataTable('#kfz_werkstatt-konten');
+    new DataTable('#kfz_werkstatt-leistungen');
+    new DataTable('#kfz_werkstatt-rechnungsdetails');
+    new DataTable('#kfz_werkstatt-lieferanten');
 </script>
 
 <body>
@@ -97,16 +101,16 @@ if ($result->num_rows > 0) {
     echo "<thead>
 
     <tr>
-        <th>KundenNr</th>
-        <th>Kennzeichen</th>
+        <th>KndID</th>
+        <th>KenZe.</th>
         <th>Marke</th>
         <th>Typ</th>
-        <th>Baujahr</th>
-        <th>kmStand</th>
+        <th>BJ</th>
+        <th>kmSt.</th>
         <th>kw</th>
         <th>treibstoff</th>
         <th>Tueren</th>
-        <th>karosserie</th>
+        <th>Form</th>
         <th>Zulassung</th>
         <th>Erstzulassung</th>
         <th>Fahrgestellnummer</th>
@@ -175,6 +179,154 @@ if ($result->num_rows > 0) {
         ."<td>".$row["Bezahlt"]."</td>"
         ."<td>".$row["Zahlungsdatum"]."</td>"
         ."<td>".$row["Kommentar"]."</td>"
+        ;
+
+    }
+    echo "</table>";
+
+} else {
+    echo "Keine Datensätze gefunden";
+}
+?>
+<h2>Alle Konten</h2>
+<?php
+
+$sql = "SELECT * FROM tbl_konten";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table border='1' id='kfz_werkstatt-konten' class='display table table-striped table-light' style='width:100%'>";
+    echo "<thead>
+
+    <tr>
+        <th>KontoID</th>
+        <th>Kontenbezeichnung</th>
+    </tr>
+
+    </thead>";
+
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>"
+        ."<td>".$row["ID"]."</td>"
+        ."<td>".$row["Kontenbezeichnung"]."</td>"
+        ;
+
+    }
+    echo "</table>";
+
+} else {
+    echo "Keine Datensätze gefunden";
+}
+?>
+<h2>Alle Leistungen</h2>
+<?php
+
+$sql = "SELECT * FROM tbl_leistungen";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table border='1' id='kfz_werkstatt-leistungen' class='display table table-striped table-light' style='width:100%'>";
+    echo "<thead>
+
+    <tr>
+        <th>LeistungsNr</th>
+        <th>Bezeichnung</th>
+        <th>Preis</th>
+        <th>KontenNr</th>
+        <th>Steuersatz</th>
+    </tr>
+
+    </thead>";
+
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>"
+        ."<td>".$row["LeistungsNr"]."</td>"
+        ."<td>".$row["Bezeichnung"]."</td>"
+        ."<td>".$row["Preis"]."</td>"
+        ."<td>".$row["KontenNr"]."</td>"
+        ."<td>".$row["Steuersatz"]."</td>"
+        ;
+
+    }
+    echo "</table>";
+
+} else {
+    echo "Keine Datensätze gefunden";
+}
+?>
+<h2>Alle Leistungen</h2>
+<?php
+
+$sql = "SELECT * FROM tbl_rechnungsdetails";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table border='1' id='kfz_werkstatt-rechnungsdetails' class='display table table-striped table-light' style='width:100%'>";
+    echo "<thead>
+
+    <tr>
+        <th>DetailNr</th>
+        <th>RechnungsNr</th>
+        <th>LeistungsNr</th>
+        <th>Menge</th>
+        <th>Einzelpreis</th>
+        <th>Gesamtpreis</th>
+        <th>Steuersatz</th>
+    </tr>
+
+    </thead>";
+
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>"
+        ."<td>".$row["DetailNr"]."</td>"
+        ."<td>".$row["RechnungsNr"]."</td>"
+        ."<td>".$row["LeistungsNr"]."</td>"
+        ."<td>".$row["Menge"]."</td>"
+        ."<td>".$row["Einzelpreis"]."</td>"
+        ."<td>".$row["Gesamtpreis"]."</td>"
+        ."<td>".$row["Steuersatz"]."</td>"
+        ;
+
+    }
+    echo "</table>";
+
+} else {
+    echo "Keine Datensätze gefunden";
+}
+?>
+<h2>Alle Leistungen</h2>
+<?php
+
+$sql = "SELECT * FROM tbl_lieferanten";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table border='1' id='kfz_werkstatt-lieferanten' class='display table table-striped table-light' style='width:100%'>";
+    echo "<thead>
+
+    <tr>
+        <th>LieferantenNr</th>
+        <th>LieferantName</th>
+        <th>STRASSE</th>
+        <th>PLZ</th>
+        <th>ORT</th>
+        <th>Telefon</th>
+        <th>mail</th>
+        <th>Ansprechpartner</th>
+    </tr>
+
+    </thead>";
+
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>"
+        ."<td>".$row["LieferantenNr"]."</td>"
+        ."<td>".$row["LieferantName"]."</td>"
+        ."<td>".$row["STRASSE"]."</td>"
+        ."<td>".$row["PLZ"]."</td>"
+        ."<td>".$row["ORT"]."</td>"
+        ."<td>".$row["Telefon"]."</td>"
+        ."<td>".$row["mail"]."</td>"
+        ."<td>".$row["Ansprechpartner"]."</td>"
         ;
 
     }
