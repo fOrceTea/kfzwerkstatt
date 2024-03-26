@@ -55,7 +55,8 @@ if ($conn->connect_error) {
         #divContent2,
         #divContent3,
         #divContent4,
-        #divContent5 {
+        #divContent5,
+        #divContent6 { 
             flex: 4;
         }
 
@@ -63,7 +64,8 @@ if ($conn->connect_error) {
         #divContent2,
         #divContent3,
         #divContent4,
-        #divContent5 {
+        #divContent5,
+        #divContent6 {
             display: none;
         }
     </style>
@@ -114,10 +116,9 @@ if ($conn->connect_error) {
                         <a class="nav-link" href="#" onclick="foo5()">Neuer Lieferant</a>
                     </li>
 
-                    <!-- 
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="foo6()"></a>
-                    </li> -->
+                        <a class="nav-link" href="#" onclick="foo6()">Rechnung erstellen</a>
+                    </li>
 
                 </ul>
 
@@ -149,13 +150,9 @@ if ($conn->connect_error) {
             <iframe src="kfz-newEntryLieferant.php" frameborder="0"></iframe>
         </div>
 
-        <!--
         <div id="divContent6">
-            <iframe src="kfz-.php" frameborder="0"></iframe>
-        </div> -->
-
-
-
+            <iframe src="kfz-newEntryRechnungsdetails.php" frameborder="0"></iframe>
+        </div>
 
     </main>
 
