@@ -54,14 +54,16 @@ if ($conn->connect_error) {
         #divContent1,
         #divContent2,
         #divContent3,
-        #divContent4 {
+        #divContent4,
+        #divContent5 {
             flex: 4;
         }
 
         #divContent1,
         #divContent2,
         #divContent3,
-        #divContent4 {
+        #divContent4,
+        #divContent5 {
             display: none;
         }
     </style>
@@ -107,12 +109,12 @@ if ($conn->connect_error) {
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="foo4()">Tabellen</a>
                     </li>
-
-                    <!-- 
-                    <li class="nav-item" style="display: none">
-                        <a class="nav-link" href="#" onclick="foo5()"></a>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="foo5()">Neuer Lieferant</a>
                     </li>
 
+                    <!-- 
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="foo6()"></a>
                     </li> -->
@@ -143,11 +145,11 @@ if ($conn->connect_error) {
             <iframe src="kfz-table.php" frameborder="0"></iframe>
         </div>
 
-        <!-- 
         <div id="divContent5">
-            <iframe src="kfz-.php" frameborder="0"></iframe>
+            <iframe src="kfz-newEntryLieferant.php" frameborder="0"></iframe>
         </div>
 
+        <!--
         <div id="divContent6">
             <iframe src="kfz-.php" frameborder="0"></iframe>
         </div> -->
