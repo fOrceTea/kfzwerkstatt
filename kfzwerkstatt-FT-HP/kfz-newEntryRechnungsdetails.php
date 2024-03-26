@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $einzelpreis = $_POST["einzelpreis"];
     $gesamtpreis = $menge * $einzelpreis; 
     $steuersatz = $_POST["steuersatz"];
-    
+
     $sql = "INSERT INTO tbl_rechnungsdetails (RechnungsNr, LeistungsNr, Menge, Einzelpreis, Gesamtpreis, Steuersatz) 
             VALUES ('$rechnungsNr', '$leistungsNr', '$menge', '$einzelpreis', '$gesamtpreis', '$steuersatz')";
     
@@ -89,7 +89,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </div>
 </body>
-
 </html>
 
 <?php
