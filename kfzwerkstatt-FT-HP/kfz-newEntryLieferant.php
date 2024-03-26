@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 $servername = "localhost";
@@ -11,14 +10,16 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $adresse = $_POST["adresse"];
+    $lieferantName = $_POST["lieferantName"];
+    $strasse = $_POST["strasse"];
     $plz = $_POST["plz"];
     $ort = $_POST["ort"];
     $telefon = $_POST["telefon"];
+    $mail = $_POST["mail"];
+    $ansprechpartner = $_POST["ansprechpartner"];
 
-    $sql = "INSERT INTO Lieferant (Name, Adresse, PLZ, Ort, Telefon) 
-    VALUES ('$name', '$adresse', '$plz', '$ort', '$telefon')";
+    $sql = "INSERT INTO tbl_lieferanten (LieferantName, STRASSE, PLZ, ORT, Telefon, mail, Ansprechpartner) 
+    VALUES ('$lieferantName', '$strasse', '$plz', '$ort', '$telefon', '$mail', '$ansprechpartner')";
     if ($conn->query($sql) === TRUE) {
         echo "Lieferant erfolgreich hinzugefügt.";
     } else {
@@ -55,18 +56,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <label for="lieferantName">Lieferant Name:</label>
+                            <input type="text" class="form-control" id="lieferantName" name="lieferantName" required>
                         </div>
                         <div class="col">
-                            <label for="adresse">Adresse:</label>
-                            <input type="text" class="form-control" id="adresse" name="adresse" required>
+                            <label for="strasse">Straße:</label>
+                            <input type="text" class="form-control" id="strasse" name="strasse" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="plz">PLZ:</label>
-                            <input type="text" class="form-control" id="plz" name="plz" required>
+                            <input type="number" class="form-control" id="plz" name="plz" required>
                         </div>
                         <div class="col">
                             <label for="ort">Ort:</label>
@@ -78,9 +79,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <label for="telefon">Telefon:</label>
                             <input type="text" class="form-control" id="telefon" name="telefon" required>
                         </div>
+                        <div class="col">
+                            <label for="mail">E-Mail:</label>
+                            <input type="email" class="form-control" id="mail" name="mail" required>
+                        </div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Lieferant anlegen</button>
+                    <div class="row">
+                        <div class="col">
+                            <label for="ansprechpartner">Ansprechpartner:</label>
+                            <input type="text" class="form-control" id="ansprechpartner" name="ansprechpartner" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Lieferant hinzufügen</button>
             </form>
         </main>
 
