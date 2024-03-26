@@ -254,7 +254,7 @@ if ($result->num_rows > 0) {
     echo "Keine Datensätze gefunden";
 }
 ?>
-<h2>Alle Leistungen</h2>
+<h2>Alle Rechnungen</h2>
 <?php
 
 $sql = "SELECT * FROM tbl_rechnungsdetails";
@@ -294,7 +294,7 @@ if ($result->num_rows > 0) {
     echo "Keine Datensätze gefunden";
 }
 ?>
-<h2>Alle Leistungen</h2>
+<h2>Alle Rechnungsdetails</h2>
 <?php
 
 $sql = "SELECT * FROM tbl_lieferanten";
