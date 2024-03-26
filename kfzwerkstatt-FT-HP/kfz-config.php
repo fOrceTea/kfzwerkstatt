@@ -14,5 +14,3 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 ?>
-
-<h2>Verbindung hergestellt</h2>
