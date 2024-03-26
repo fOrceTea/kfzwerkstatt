@@ -9,16 +9,6 @@ if ($conn->connect_error) {
     die ("Connection failed: " . $conn->connect_error);
 }
 
-// Abrufen der Kundennr aus der Datenbank
-$sql_kunden = "SELECT KundenNr FROM tbl_kunden";
-$result_kunden = $conn->query($sql_kunden);
-$kundenNr_options = "";
-if ($result_kunden->num_rows > 0) {
-    while($row = $result_kunden->fetch_assoc()) {
-        $kundenNr_options .= "<option value='" . $row["KundenNr"] . "'>" . $row["KundenNr"] . "</option>";
-    }
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kundenNr = $_POST["kundenNr"];
     $datum = $_POST["datum"];
@@ -66,9 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="row">
                         <div class="col">
                             <label for="kundenNr">KundenNr:</label>
-                            <select class="form-control" id="kundenNr" name="kundenNr">
-                                <?php echo $kundenNr_options; ?>
-                            </select>
+                            <input type="number" class="form-control" id="kundenNr" name="kundenNr">
                         </div>
                         <div class="col">
                             <label for="datum">Datum:</label>
