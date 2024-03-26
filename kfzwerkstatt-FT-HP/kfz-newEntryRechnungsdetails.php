@@ -14,9 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $leistungsNr = $_POST["leistungsNr"];
     $menge = $_POST["menge"];
     $einzelpreis = $_POST["einzelpreis"];
-    $gesamtpreis = $menge * $einzelpreis; // Calculate the total price
+    $gesamtpreis = $menge * $einzelpreis; 
     $steuersatz = $_POST["steuersatz"];
-
+    
     $sql = "INSERT INTO tbl_rechnungsdetails (RechnungsNr, LeistungsNr, Menge, Einzelpreis, Gesamtpreis, Steuersatz) 
             VALUES ('$rechnungsNr', '$leistungsNr', '$menge', '$einzelpreis', '$gesamtpreis', '$steuersatz')";
     
