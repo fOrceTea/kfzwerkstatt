@@ -99,6 +99,10 @@ if ($conn->connect_error) {
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="foo4()">Tabellen</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="#" onclick="foo2()">Neues KFZ</a>
                     </li>
 
@@ -106,10 +110,6 @@ if ($conn->connect_error) {
                         <a class="nav-link" href="#" onclick="foo3()">Neuer Kunde</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="foo4()">Tabellen</a>
-                    </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="foo5()">Neuer Lieferant</a>
                     </li>
